@@ -200,6 +200,12 @@ cmark_iccm        - the same as above, but with code preloaded to iccm - runs on
 The `$RV_ROOT/testbench/hex` directory contains precompiled hex files of the tests, ready for simulation in case RISCV SW tools are not installed.
 
 
+## Modifications to Original RiscV Core
+
+I have modified the core to act similarly to memory-mapped IO. A decoder exists between the RiscV core and the memory to select how memory is to be interacted with. The connections can be tailored depending on the address being targeted, e.g. if memory is stored from address 0x8000_0000 or lower then add one to it, etc.
+
+The linker file for writing assembly has also been restructured. It is now easier to see what parts are laid out and in what fashion.
+
 ----
 Western Digital, the Western Digital logo, G-Technology, SanDisk, Tegile, Upthere, WD, SweRV Core, SweRV ISS, 
 and OmniXtend are registered trademarks or trademarks of Western Digital Corporation or its affiliates in the US 
